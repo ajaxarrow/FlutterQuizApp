@@ -8,11 +8,13 @@ class ResultsScreen extends StatelessWidget {
       {required this.selectedOptions,
       required this.selectedQuestions,
       required this.onRestartQuiz,
+      required this.onGoToHomeScreen,
       super.key});
 
   final List<String> selectedOptions;
   final List<Question> selectedQuestions;
   final void Function() onRestartQuiz;
+  final void Function() onGoToHomeScreen;
 
   List<Map<String, Object>> getSummaryData() {
     final List<Map<String, Object>> summary = [];
@@ -52,16 +54,40 @@ class ResultsScreen extends StatelessWidget {
           const SizedBox(height: 30),
           QuizSummary(summaryData),
           const SizedBox(height: 30),
-          TextButton.icon(
-            onPressed: onRestartQuiz,
-            style: TextButton.styleFrom(
-                foregroundColor: const Color.fromARGB(255, 237, 193, 241)),
-            label: Text(
-              'Restart Quiz',
-              style: GoogleFonts.assistant(fontWeight: FontWeight.w600),
+          Row(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: [
+            Padding(
+              padding: const EdgeInsets.all(8.0),
+              child: TextButton.icon(
+                onPressed: onRestartQuiz,
+                style: TextButton.styleFrom(
+                  foregroundColor: const Color.fromARGB(255, 237, 193, 241),
+                  padding: const EdgeInsets.all(8.0)
+                ),
+                label: Text(
+                  'Restart Quiz',
+                  style: GoogleFonts.assistant(fontWeight: FontWeight.w600),
+                ),
+                icon: const Icon(Icons.refresh),
+              ),
             ),
-            icon: const Icon(Icons.refresh),
-          )
+            Padding(
+              padding: const EdgeInsets.all(8.0),
+              child: TextButton.icon(
+                onPressed: onGoToHomeScreen,
+                style: TextButton.styleFrom(
+                  foregroundColor: const Color.fromARGB(255, 237, 193, 241),
+                  padding: const EdgeInsets.all(8.0)
+                ),
+                label: Text(
+                  'Back to Home',
+                  style: GoogleFonts.assistant(fontWeight: FontWeight.w600),
+                ),
+                icon: const Icon(Icons.home),
+              ),
+            )
+          ],)
         ]),
       ),
     );

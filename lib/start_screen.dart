@@ -39,12 +39,34 @@ class StartScreen extends StatelessWidget{
               ),
               icon: const Icon(
                 Icons.arrow_circle_right,
-                
+
               ),
               label: Text(
                 'Get Started',
                 style: GoogleFonts.lato(
                   fontWeight: FontWeight.w500
+                ),
+              ),
+            ),
+            const SizedBox(
+              height: 5.0,
+            ),
+            OutlinedButton.icon(
+              onPressed: (){
+                Navigator.pushNamed(context, '/settings');
+              },
+              style: OutlinedButton.styleFrom(
+                  foregroundColor: Colors.white70,
+                  padding: const EdgeInsets.all(15.0)
+              ),
+              icon: const Icon(
+                Icons.settings,
+
+              ),
+              label: Text(
+                'Settings',
+                style: GoogleFonts.lato(
+                    fontWeight: FontWeight.w500
                 ),
               ),
             )

@@ -6,18 +6,19 @@ import 'package:quiz_app/data/quiz_questions.dart';
 import 'package:quiz_app/models/questions.dart';
 
 
-class MainContainer extends StatefulWidget{
-  const MainContainer({super.key});
-  
+class MainRoute extends StatefulWidget{
+  const MainRoute({required this.gradientBackground, super.key});
+  final List<Color> gradientBackground;
   @override
-  State <MainContainer> createState(){
-    return _MainContainerState();
+  State <MainRoute> createState(){
+    return _MainRouteState();
   }
 }
 
-class _MainContainerState extends State <MainContainer>{
+class _MainRouteState extends State <MainRoute>{
   List<Question> selectedQuestions = [];
   List<String> selectedOptions = [];
+
   var currentScreen = 'start-screen';
   // late Widget currentScreen;
 
@@ -56,6 +57,14 @@ class _MainContainerState extends State <MainContainer>{
     });
   }
 
+  void goToHomeScreen(){
+    setState(() {
+      currentScreen = 'start-screen';
+      selectedOptions = [];
+      selectedQuestions = getNewQuestions(questions);
+    });
+  }
+
   @override
   void initState() {
     super.initState();
@@ -87,28 +96,25 @@ class _MainContainerState extends State <MainContainer>{
           onRestartQuiz: (){
             restartQuiz();
           },
+          onGoToHomeScreen: (){
+            goToHomeScreen();
+          },
         );
       });
     }
     
   
-    return MaterialApp(
-      home: Scaffold(
+    return Scaffold(
         body: Container(
-          decoration: const BoxDecoration(
+          decoration: BoxDecoration(
             gradient: LinearGradient(
-              colors: [
-                Color.fromARGB(221, 86, 30, 112),
-                Color.fromARGB(221, 114, 7, 60),
-                Color.fromARGB(221, 54, 10, 52)
-              ],
+              colors: widget.gradientBackground,
               begin: Alignment.topLeft,
               end: Alignment.bottomRight
               )
           ),
           child: screenWidget
         )
-      )
-    );
+      );
   }
 }
