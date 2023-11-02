@@ -49,3 +49,5 @@ class AnimatedProgressBar extends StatelessWidget {
     );
   }
 }
+
+

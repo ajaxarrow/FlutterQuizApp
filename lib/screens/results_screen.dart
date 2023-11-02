@@ -1,3 +1,4 @@
+import 'package:animated_digit/animated_digit.dart';
 import 'package:flutter/material.dart';
 import 'package:quiz_app/models/questions.dart';
 import 'package:quiz_app/widgets/quiz_summary.dart';
@@ -43,14 +44,47 @@ class ResultsScreen extends StatelessWidget {
       child: Container(
         margin: const EdgeInsets.symmetric(horizontal: 40.0, vertical: 10.0),
         child: Column(mainAxisAlignment: MainAxisAlignment.center, children: [
-          Text(
-            'You answered $correctAnswers out of $totalQuestions questions correctly!',
+          Text.rich(
             textAlign: TextAlign.center,
-            style: GoogleFonts.assistant(
-                fontSize: 22,
-                fontWeight: FontWeight.bold,
-                color: const Color.fromARGB(255, 237, 193, 241)),
+            TextSpan(
+              text: 'You answered ',
+              style: GoogleFonts.assistant(
+                  fontSize: 22,
+                  fontWeight: FontWeight.bold,
+                  color: const Color.fromARGB(255, 237, 193, 241)
+              ),
+              children: [
+                WidgetSpan(
+                  child: AnimatedDigitWidget(
+                    duration: const Duration(milliseconds: 700),
+                    curve: Curves.easeInOutCubic,
+                    value: correctAnswers,
+                    textStyle: GoogleFonts.assistant(
+                        fontSize: 22,
+                        fontWeight: FontWeight.bold,
+                        color: const Color.fromARGB(255, 237, 193, 241)
+                    ),
+                  )
+                ),
+                TextSpan(
+                  text: ' out of $totalQuestions questions correctly!',
+                  style: GoogleFonts.assistant(
+                      fontSize: 22,
+                      fontWeight: FontWeight.bold,
+                      color: const Color.fromARGB(255, 237, 193, 241)
+                  ),
+                ),
+              ],
+            ),
           ),
+          // Text(
+          //   'You answered $correctAnswers out of $totalQuestions questions correctly!',
+          //   textAlign: TextAlign.center,
+          //   style: GoogleFonts.assistant(
+          //       fontSize: 22,
+          //       fontWeight: FontWeight.bold,
+          //       color: const Color.fromARGB(255, 237, 193, 241)),
+          // ),
           const SizedBox(height: 30),
           QuizSummary(summaryData),
           const SizedBox(height: 30),
@@ -62,8 +96,12 @@ class ResultsScreen extends StatelessWidget {
               child: TextButton.icon(
                 onPressed: onRestartQuiz,
                 style: TextButton.styleFrom(
+                  backgroundColor: Colors.black12,
                   foregroundColor: const Color.fromARGB(255, 239, 212, 241),
-                  padding: const EdgeInsets.all(8.0)
+                  padding: const EdgeInsets.symmetric(
+                    horizontal: 12.0,
+                    vertical: 10.0
+                  )
                 ),
                 label: Text(
                   'Restart Quiz',
@@ -77,8 +115,12 @@ class ResultsScreen extends StatelessWidget {
               child: TextButton.icon(
                 onPressed: onGoToHomeScreen,
                 style: TextButton.styleFrom(
-                  foregroundColor: const Color.fromARGB(255, 239, 212, 241),
-                  padding: const EdgeInsets.all(8.0)
+                    backgroundColor: Colors.black12,
+                    foregroundColor: const Color.fromARGB(255, 239, 212, 241),
+                    padding: const EdgeInsets.symmetric(
+                        horizontal: 12.0,
+                        vertical: 10.0
+                    )
                 ),
                 label: Text(
                   'Back to Home',

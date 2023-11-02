@@ -9,8 +9,14 @@ class StartScreen extends StatelessWidget{
   @override
   Widget build(BuildContext context) {
     return Center(
+      child: Padding(
+        padding: const EdgeInsets.symmetric(
+          vertical: 8,
+          horizontal: 40
+        ),
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
+          crossAxisAlignment: CrossAxisAlignment.stretch,
           children: [
             Image.asset(
               'assets/images/quiz-logo.png',
@@ -18,60 +24,76 @@ class StartScreen extends StatelessWidget{
               color: Colors.white54
             ),
             const SizedBox(
-              height: 25.0,
+              height: 27.0,
             ),
             Text(
               'Ready, Set, Quiz!',
+              textAlign: TextAlign.center,
               style: GoogleFonts.assistant(
                 fontWeight: FontWeight.w700,
-                fontSize: 30.0,
+                fontSize: 35.0,
                 color: Colors.white70
               ),
             ),
             const SizedBox(
               height: 30.0,
             ),
-            OutlinedButton.icon(
-              onPressed: startQuiz,
-              style: OutlinedButton.styleFrom(
-                foregroundColor: Colors.white70,
-                padding: const EdgeInsets.all(15.0)
+            Padding(
+              padding: const EdgeInsets.symmetric(
+                horizontal: 30,
+                vertical: 5
               ),
-              icon: const Icon(
-                Icons.arrow_circle_right,
+              child: OutlinedButton.icon(
+                onPressed: startQuiz,
+                style: OutlinedButton.styleFrom(
+                  backgroundColor: Colors.black12,
+                  foregroundColor: Colors.white70,
+                  padding: const EdgeInsets.all(15.0)
+                ),
+                icon: const Icon(
+                  Icons.arrow_circle_right,
 
-              ),
-              label: Text(
-                'Get Started',
-                style: GoogleFonts.lato(
-                  fontWeight: FontWeight.w500
+                ),
+                label: Text(
+                  'Get Started',
+                  style: GoogleFonts.lato(
+                    fontWeight: FontWeight.w500
+                  ),
                 ),
               ),
             ),
             const SizedBox(
               height: 5.0,
             ),
-            OutlinedButton.icon(
-              onPressed: (){
-                Navigator.pushNamed(context, '/settings');
-              },
-              style: OutlinedButton.styleFrom(
+            Padding(
+              padding: const EdgeInsets.symmetric(
+                horizontal: 30,
+                vertical: 5
+              ),
+              child: OutlinedButton.icon(
+                onPressed: (){
+                  Navigator.pushNamed(context, '/settings');
+                },
+                style: OutlinedButton.styleFrom(
+                  backgroundColor: Colors.black12,
                   foregroundColor: Colors.white70,
                   padding: const EdgeInsets.all(15.0)
-              ),
-              icon: const Icon(
-                Icons.settings,
+                ),
+                icon: const Icon(
+                  Icons.settings,
 
-              ),
-              label: Text(
-                'Settings',
-                style: GoogleFonts.lato(
-                    fontWeight: FontWeight.w500
+                ),
+                label: Text(
+                  'Settings',
+                  style: GoogleFonts.lato(
+                      fontWeight: FontWeight.w500
+                  ),
                 ),
               ),
             )
           ],
         ),
+      ),
       );
   }
 }
