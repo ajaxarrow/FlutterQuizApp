@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:quiz_app/models/questions.dart';
-import 'package:quiz_app/quiz_summary.dart';
+import 'package:quiz_app/widgets/quiz_summary.dart';
 import 'package:google_fonts/google_fonts.dart';
 
 class ResultsScreen extends StatelessWidget {
@@ -62,7 +62,7 @@ class ResultsScreen extends StatelessWidget {
               child: TextButton.icon(
                 onPressed: onRestartQuiz,
                 style: TextButton.styleFrom(
-                  foregroundColor: const Color.fromARGB(255, 237, 193, 241),
+                  foregroundColor: const Color.fromARGB(255, 239, 212, 241),
                   padding: const EdgeInsets.all(8.0)
                 ),
                 label: Text(
@@ -77,7 +77,7 @@ class ResultsScreen extends StatelessWidget {
               child: TextButton.icon(
                 onPressed: onGoToHomeScreen,
                 style: TextButton.styleFrom(
-                  foregroundColor: const Color.fromARGB(255, 237, 193, 241),
+                  foregroundColor: const Color.fromARGB(255, 239, 212, 241),
                   padding: const EdgeInsets.all(8.0)
                 ),
                 label: Text(

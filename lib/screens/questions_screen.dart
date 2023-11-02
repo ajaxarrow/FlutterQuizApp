@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:quiz_app/option_button.dart';
+import 'package:quiz_app/widgets/option_button.dart';
 import 'package:quiz_app/models/questions.dart';
+import 'package:quiz_app/widgets/progress_bar.dart';
 
 class QuestionsScreen extends StatefulWidget{
   const QuestionsScreen({
@@ -23,15 +24,16 @@ class _QuestionsScreenState extends State <QuestionsScreen>{
   
   var currentQuestionIndex = 0;
 
+  double progress = 0.0;
+
   void answerQuestion(String selectedOption){
     widget.onSelectOption(selectedOption);
 
     setState(() {
       currentQuestionIndex++;
+      progress = currentQuestionIndex / widget.selectedQuestions.length;
     });
   }
-
-
 
   @override
   Widget build(BuildContext context) {
@@ -50,6 +52,8 @@ class _QuestionsScreenState extends State <QuestionsScreen>{
           mainAxisAlignment: MainAxisAlignment.center,
           crossAxisAlignment: CrossAxisAlignment.stretch,
           children: [
+            AnimatedProgressBar(value: progress),
+            const SizedBox(height: 25),
             Text(
               currentQuestion.question,
               textAlign: TextAlign.center,

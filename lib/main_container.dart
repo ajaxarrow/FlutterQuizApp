@@ -30,8 +30,8 @@ class _MainContainerState extends State<MainContainer> {
     return MaterialApp(
       initialRoute: '/',
       routes: {
-        '/': (context) => MainRoute(gradientBackground: gradientBackground),
-        '/settings': (context) => SettingsRoute(gradientBackground: gradientBackground, onChangeBackground: changeBackground),
+        '/': (context) => const MainRoute(),
+        '/settings': (context) => const SettingsRoute(),
       },
     );
   }

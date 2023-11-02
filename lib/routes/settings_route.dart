@@ -1,16 +1,12 @@
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
 import 'package:quiz_app/data/color_gradients.dart';
+
+import '../providers/color_gradient_provider.dart';
 
 
 class SettingsRoute extends StatefulWidget {
-  const SettingsRoute({
-    required this.gradientBackground,
-    required this.onChangeBackground,
-    super.key
-  });
-
-  final List<Color> gradientBackground;
-  final Function onChangeBackground;
+  const SettingsRoute({super.key});
 
   @override
   State<SettingsRoute> createState() => _SettingsRouteState();
@@ -19,6 +15,7 @@ class SettingsRoute extends StatefulWidget {
 class _SettingsRouteState extends State<SettingsRoute> {
   @override
   Widget build(BuildContext context) {
+    final colorGradientState = Provider.of<ColorGradientState>(context);
     return Scaffold(
       appBar: AppBar(
         title: const Text("Settings"),
@@ -27,7 +24,7 @@ class _SettingsRouteState extends State<SettingsRoute> {
           gradient: LinearGradient(
             begin: Alignment.topLeft,
             end: Alignment.bottomRight,
-            colors: widget.gradientBackground,
+            colors: colorGradientState.gradientBackground,
             ),
           ),
         ),
@@ -35,12 +32,7 @@ class _SettingsRouteState extends State<SettingsRoute> {
       body: Container(
         decoration: const BoxDecoration(
           color: Colors.white
-          // gradient: LinearGradient(
-          //   begin: Alignment.topLeft,
-          //   end: Alignment.bottomRight,
-          //   colors: widget.gradientBackground.map((color) => color.withOpacity(.05)).toList(),
-          // ),
-        ),
+          ),
         child: Padding(
           padding: const EdgeInsets.all(20.0),
           child: Column(
@@ -63,7 +55,7 @@ class _SettingsRouteState extends State<SettingsRoute> {
                 itemBuilder: (ctx, index) =>
                   GestureDetector(
                     onTap: (){
-                      widget.onChangeBackground(colorGradients[index].colorsList);
+                      colorGradientState.changeBackground(colorGradients[index].colorsList);
                     },
                     child: Padding(
                       padding: const EdgeInsets.all(5.0),
@@ -87,7 +79,7 @@ class _SettingsRouteState extends State<SettingsRoute> {
                                     ),
                                   ),
                                   const SizedBox(width: 5.0),
-                                  widget.gradientBackground == colorGradients[index].colorsList ? const Icon(Icons.check_circle, color: Colors.white) : Container(),
+                                  colorGradientState.gradientBackground == colorGradients[index].colorsList ? const Icon(Icons.check_circle, color: Colors.white) : Container(),
                                 ],
                               ),
                             ),
