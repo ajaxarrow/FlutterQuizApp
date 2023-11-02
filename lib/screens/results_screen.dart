@@ -42,7 +42,7 @@ class ResultsScreen extends StatelessWidget {
     return SizedBox(
       width: double.infinity,
       child: Container(
-        margin: const EdgeInsets.symmetric(horizontal: 40.0, vertical: 10.0),
+        margin: const EdgeInsets.symmetric(horizontal: 30.0, vertical: 10.0),
         child: Column(mainAxisAlignment: MainAxisAlignment.center, children: [
           Text.rich(
             textAlign: TextAlign.center,
