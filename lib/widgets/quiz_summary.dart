@@ -68,8 +68,7 @@ class QuizSummary extends StatelessWidget{
                               TextSpan(
                                 text: data['user_answer'] as String,
                                 style: GoogleFonts.assistant(
-                                  color: const Color.fromARGB(
-                                      248, 234, 185, 212)
+                                  color: const Color(0xfffdf3fa)
                                 )
                               ),
                             ]
@@ -88,8 +87,7 @@ class QuizSummary extends StatelessWidget{
                               TextSpan(
                                 text: data['correct_option'] as String,
                                 style: GoogleFonts.assistant(
-                                  color: const Color.fromARGB(
-                                      248, 213, 178, 236)
+                                    color: const Color(0xfffce8ff)
                                 )
                               ),
                             ]

@@ -49,7 +49,7 @@ class ResultsScreen extends StatelessWidget {
               style: GoogleFonts.assistant(
                   fontSize: 22,
                   fontWeight: FontWeight.bold,
-                  color: const Color.fromARGB(255, 237, 193, 241)
+                  color: const Color(0xfff5e9f1)
               ),
               children: [
                 WidgetSpan(
@@ -60,7 +60,7 @@ class ResultsScreen extends StatelessWidget {
                     textStyle: GoogleFonts.assistant(
                         fontSize: 22,
                         fontWeight: FontWeight.bold,
-                        color: const Color.fromARGB(255, 237, 193, 241)
+                        color: const Color(0xfff5e9f1)
                     ),
                   )
                 ),
@@ -69,7 +69,7 @@ class ResultsScreen extends StatelessWidget {
                   style: GoogleFonts.assistant(
                       fontSize: 22,
                       fontWeight: FontWeight.bold,
-                      color: const Color.fromARGB(255, 237, 193, 241)
+                      color: const Color(0xfff5e9f1)
                   ),
                 ),
               ],
