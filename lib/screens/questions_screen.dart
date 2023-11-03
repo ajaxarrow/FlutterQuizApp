@@ -30,7 +30,9 @@ class _QuestionsScreenState extends State <QuestionsScreen>{
     widget.onSelectOption(selectedOption);
 
     setState(() {
-      currentQuestionIndex++;
+      if (currentQuestionIndex < widget.selectedQuestions.length - 1){
+        currentQuestionIndex++;
+      }
       progress = currentQuestionIndex / widget.selectedQuestions.length;
     });
   }
