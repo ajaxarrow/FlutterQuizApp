@@ -93,53 +93,58 @@ class _SettingsRouteState extends State<SettingsRoute> {
                   color: Colors.black87
                 ),
               ),
-              Expanded(child: GridView.builder(
-                gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
-                  crossAxisCount: 2,
-                  childAspectRatio: 2.25
-                ),
-                itemCount: colorGradients.length,
-                itemBuilder: (ctx, index) =>
-                  GestureDetector(
-                    onTap: (){
-                      colorGradientState.changeBackground(colorGradients[index].colorsList);
-                    },
-                    child: Padding(
-                      padding: const EdgeInsets.all(5.0),
-                      child: Card(
-                        shape: RoundedRectangleBorder(
-                          borderRadius: BorderRadius.circular(10),
-                        ),
-                        child: Container(
-                          decoration: BoxDecoration(
-                            borderRadius: const BorderRadius.all(Radius.circular(10)),
-                            gradient: LinearGradient(
-                              begin: Alignment.topLeft,
-                              end: Alignment.bottomRight,
-                              colors: colorGradients[index].colorsList,
-                            ),
+              const SizedBox(
+                height: 5,
+              ),
+              Expanded(
+                child: GridView.builder(
+                  gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
+                      crossAxisCount: 2,
+                      childAspectRatio: 2.25
+                  ),
+                  itemCount: colorGradients.length,
+                  itemBuilder: (ctx, index) =>
+                    GestureDetector(
+                      onTap: (){
+                        colorGradientState.changeBackground(colorGradients[index].colorsList);
+                      },
+                      child: Padding(
+                        padding: const EdgeInsets.all(2.0),
+                        child: Card(
+                          shape: RoundedRectangleBorder(
+                            borderRadius: BorderRadius.circular(8),
                           ),
-                          child: Center(
-                            child: Row(
-                              mainAxisAlignment: MainAxisAlignment.center,
-                              children: [
-                                Text(
-                                  colorGradients[index].title,
-                                  style: const TextStyle(
-                                    color: Colors.white
+                          child: Container(
+                            decoration: BoxDecoration(
+                              borderRadius: const BorderRadius.all(Radius.circular(8)),
+                              gradient: LinearGradient(
+                                begin: Alignment.topLeft,
+                                end: Alignment.bottomRight,
+                                colors: colorGradients[index].colorsList,
+                              ),
+                            ),
+                            child: Center(
+                              child: Row(
+                                mainAxisAlignment: MainAxisAlignment.center,
+                                children: [
+                                  Text(
+                                    colorGradients[index].title,
+                                    style: const TextStyle(
+                                      color: Colors.white,
+
+                                    ),
                                   ),
-                                ),
-                                const SizedBox(width: 5.0),
-                                colorGradientState.gradientBackground == colorGradients[index].colorsList ? const Icon(Icons.check_circle, color: Colors.white) : Container(),
-                              ],
+                                  const SizedBox(width: 5.0),
+                                  colorGradientState.gradientBackground == colorGradients[index].colorsList ? const Icon(Icons.check_circle, color: Colors.white,) : Container(),
+                                ],
+                              ),
                             ),
                           ),
                         ),
                       ),
                     ),
-                    ),
-                  ),
-                )
+                ),
+              )
             ],
           ),
         )
