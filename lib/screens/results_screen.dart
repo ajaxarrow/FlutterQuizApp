@@ -9,13 +9,11 @@ class ResultsScreen extends StatelessWidget {
       {required this.selectedOptions,
       required this.selectedQuestions,
       required this.onRestartQuiz,
-      required this.onGoToHomeScreen,
       super.key});
 
   final List<String> selectedOptions;
   final List<Question> selectedQuestions;
   final void Function() onRestartQuiz;
-  final void Function() onGoToHomeScreen;
 
   List<Map<String, Object>> getSummaryData() {
     final List<Map<String, Object>> summary = [];
@@ -113,7 +111,9 @@ class ResultsScreen extends StatelessWidget {
             Padding(
               padding: const EdgeInsets.all(8.0),
               child: TextButton.icon(
-                onPressed: onGoToHomeScreen,
+                onPressed: (){
+                  Navigator.pushNamed(context, '/');
+                },
                 style: TextButton.styleFrom(
                     backgroundColor: Colors.black12,
                     foregroundColor: const Color.fromARGB(255, 239, 212, 241),

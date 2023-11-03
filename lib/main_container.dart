@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:quiz_app/data/color_gradients.dart';
 import 'package:quiz_app/routes/main_route.dart';
+import 'package:quiz_app/routes/quiz_route.dart';
 import 'package:quiz_app/routes/settings_route.dart';
 
 class MainContainer extends StatefulWidget {
@@ -32,6 +33,7 @@ class _MainContainerState extends State<MainContainer> {
       initialRoute: '/',
       routes: {
         '/': (context) => const MainRoute(),
+        '/quiz': (context) => const QuizRoute(),
         '/settings': (context) => const SettingsRoute(),
       },
     );

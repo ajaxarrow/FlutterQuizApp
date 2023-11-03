@@ -65,11 +65,13 @@ class _SettingsRouteState extends State<SettingsRoute> {
                     children: [
                       const Text('No. of Questions:'),
                       DropdownButton<int>(
+                        elevation: 0,
+                        underline: Container(),
                         value: noOfQuestionState.questionsNo,
                         items: [5, 10, 15].map((value) {
                           return DropdownMenuItem<int>(
                             value: value,
-                            child: Text('$value'),
+                            child: Text('$value')
                           );
                         }).toList(),
                         onChanged: (value) {
@@ -80,11 +82,14 @@ class _SettingsRouteState extends State<SettingsRoute> {
                   ),
                 ),
               ),
+              const SizedBox(
+                height: 20,
+              ),
               const Text(
                 'Theme:',
                 style: TextStyle(
                   fontSize: 20,
-                  fontWeight: FontWeight.w500,
+                  fontWeight: FontWeight.w600,
                   color: Colors.black87
                 ),
               ),
