@@ -159,7 +159,7 @@ var colorGradients = [
       ]
   ),
   ColorGradient(
-      'Witching Hour',
+      'Crimson Tide',
       const [
         Color(0xff642B73),
         Color(0xffC6426E)
@@ -194,7 +194,7 @@ var colorGradients = [
       ]
   ),
   ColorGradient(
-      'Emo Kid',
+      'Cheer Up, Emo Kid',
       const [
         Color(0xff556270),
         Color(0xffFF6B6B)

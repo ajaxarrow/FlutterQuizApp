@@ -131,6 +131,7 @@ class _SettingsRouteState extends State<SettingsRoute> {
                                     colorGradients[index].title,
                                     style: const TextStyle(
                                       color: Colors.white,
+                                      fontSize: 13.5
 
                                     ),
                                   ),
